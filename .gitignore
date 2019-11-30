@@ -126,3 +126,6 @@ dmypy.json
 
 #ignore these
 Audio
+output/10.wav
+*.wav
+*.p
