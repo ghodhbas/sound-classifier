@@ -42,7 +42,7 @@ def build_rand_feat():
         # choose a random file in that class and load sound
         file = np.random.choice(df[df.label==choice].index)
         rate, signal = wavfile.read('Audio\\clean\\'+file)
-        # DO DATA AUgmentation??????
+      
 
         #retreive label
         #label = df.at[choice, 'label']
@@ -149,7 +149,7 @@ class_distrib = df.groupby(['label'])['length'].sum()
 #Our samples represents the total number of audio chanks that we form from our wav files:
 # We chunk the wave files into smaller clips of (10ms) / x2 for more samples = more data
 # we basiclaly multiply the total length of our audios by 10 and then by 2  ( was 0.1)
-n_samples = int(df['length'].sum())
+n_samples = 6*  int(df['length'].sum())
 #probability distribution of classes based on their total length of audio clips
 prob_dist = class_distrib / class_distrib.sum()
 
@@ -190,7 +190,7 @@ clear = lambda: os.system('cls')
 clear()
 
 
-model.fit(x,y, epochs=20, batch_size=32, shuffle=True, class_weight=class_weight, validation_split=0.15, callbacks = [checkpoint] )
+model.fit(x,y, epochs=30, batch_size=32, shuffle=True, class_weight=class_weight, validation_split=0.15, callbacks = [checkpoint] )
 model.save(config.model_path)
 
 
