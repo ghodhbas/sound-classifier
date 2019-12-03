@@ -143,8 +143,8 @@ df = df[df_in_class]
 calculate_length_distrib(df) # and change index to file name
 class_distrib = df.groupby(['label'])['length'].sum()
 #print(class_distrib)
-#Plot.plot_class_distrib(class_distrib)
-#plt.show()
+Plot.plot_class_distrib(class_distrib)
+plt.show()
 
 #Our samples represents the total number of audio chanks that we form from our wav files:
 # We chunk the wave files into smaller clips of (10ms) / x2 for more samples = more data
